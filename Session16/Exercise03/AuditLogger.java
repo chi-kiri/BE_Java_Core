@@ -1,0 +1,14 @@
+package Exercise03;
+
+import java.util.function.Consumer;
+import java.util.function.Supplier;
+
+public class AuditLogger {
+    public static void logEvent(Supplier<String> timeSupplier,
+                                Consumer<String> logger,
+                                String eventName) {
+        String timestamp = timeSupplier.get();
+        String fullMessage = "[" + timestamp + "] - SỰ KIỆN: " + eventName;
+        logger.accept(fullMessage);
+    }
+}
